@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AwayFromHome</title>
+    <title>ExtendedAway</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <%= render "shared/flashes" %>
 
-    <%= yield %>
+    <% if (params[:controller] == "pages" && params[:action] == "home") || (controller_name == "sessions" && action_name == "new") %>
+     <%= yield %>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <main class="container my-4">
+        <%= yield %>
+      </main>
+    <% end %>
+
+    <%= render "shared/footer" %>
+    <%= render "shared/flashes" %>
   </body>
 </html>
