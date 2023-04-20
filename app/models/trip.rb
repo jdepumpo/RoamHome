@@ -3,4 +3,6 @@ class Trip < ApplicationRecord
   has_many :tasks, dependent: :destroy
   validates_inclusion_of :entry_type, in: ["Lockbox", "Digital Lock", "Hidden Key", "Other"], message: "%{value} is not a valid entry type"
   validates :start_date, :end_date, :name, :location, presence: true
+  has_one_attached :photo
+  has_one_attached :entry_photo
 end

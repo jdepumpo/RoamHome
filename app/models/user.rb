@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :trips
   has_many :tasks, through: :trips
   has_many :my_tasks, foreign_key: 'user_id', class_name: 'Task'
+  has_one_attached :photo
 end

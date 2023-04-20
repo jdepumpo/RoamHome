@@ -21,7 +21,7 @@ puts "_______________________"
 puts "Baking up two users with the role 'homeowner'"
 homeowner_array = []
 2.times do |i|
-#  prof_pic = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['face']))
+  prof_pic = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['face']))
   homeowner = User.new({
                          first_name: Faker::Name.first_name,
                          last_name: Faker::Name.last_name,
@@ -30,7 +30,7 @@ homeowner_array = []
                          email: "#{i + 1}@homeowner.com",
                          password: "123456"
                        })
-#  homeowner.photo.attach(io: prof_pic, filename: "homeowner#{i}.jpeg", content_type: "image/jpeg")
+  homeowner.photo.attach(io: prof_pic, filename: "homeowner#{i}.jpeg", content_type: "image/jpeg")
   homeowner.save!
   homeowner_array << homeowner
   puts "+++ #{homeowner.first_name} #{homeowner.last_name}"
@@ -41,7 +41,7 @@ puts "_______________________"
 caretaker_array = []
 puts "Grilling a few users with the role 'caretaker'"
 6.times do |i|
-#  prof_pic = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['face']))
+  prof_pic = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['face']))
   caretaker = User.create({
                             first_name: Faker::Name.first_name,
                             last_name: Faker::Name.last_name,
@@ -51,7 +51,7 @@ puts "Grilling a few users with the role 'caretaker'"
                             password: "123456"
                           })
   caretaker_array << caretaker
-#  caretaker.photo.attach(io: prof_pic, filename: "caretaker#{i}.jpeg", content_type: "image/jpeg")
+  caretaker.photo.attach(io: prof_pic, filename: "caretaker#{i}.jpeg", content_type: "image/jpeg")
   caretaker.save
   puts "+++ #{caretaker.first_name} #{caretaker.last_name}"
 end
@@ -71,7 +71,7 @@ def_trips = [
 
 trip_array = []
 6.times do |i|
-#  trip_pic = URI.open(def_trips[i][2].to_s)
+  trip_pic = URI.open(def_trips[i][2].to_s)
   trip = Trip.new({
                     name: def_trips[i][0].to_s,
                     description: def_trips[i][1].to_s,
@@ -81,7 +81,7 @@ trip_array = []
                     entry_type: ["Lockbox", "Digital Lock", "Hidden Key", "Other"].sample
                   })
   trip.user = homeowner_array.sample
-#  trip.photo.attach(io: trip_pic, filename: "trip#{i}.jpeg", content_type: "image/jpeg")
+  trip.photo.attach(io: trip_pic, filename: "trip#{i}.jpeg", content_type: "image/jpeg")
   trip.save!
   trip_array << trip
   puts "+++ #{trip.name}"
