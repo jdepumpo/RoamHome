@@ -9,22 +9,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-
   </head>
-
   <body>
-    <%= render "shared/flashes" %>
-
-    <% if (params[:controller] == "pages" && params[:action] == "home") || (controller_name == "sessions" && action_name == "new") %>
-     <%= yield %>
-    <% else %>
-      <%= render "shared/navbar" %>
-      <main class="container my-4">
-        <%= yield %>
-      </main>
-    <% end %>
-
-    <%= render "shared/footer" %>
-    <%= render "shared/flashes" %>
+    <%= render "shared/navbar" %>
+    <main class="container my-4">
+      <%= yield %>
+      <%= render "shared/footer" %>
+      <%= render "shared/flashes" %>
+    </main>
   </body>
 </html>
