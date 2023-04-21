@@ -1,6 +1,12 @@
-<% if current_user %>
-  <%= link_to "My trips", trips_path %>
-<% else %>
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Sign up", new_user_registration_path %>
-<% end %>
+<div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-primary bg-gradient", style="width: 100vw; left: calc(-1 * (100vw - 100%) / 2);">
+  <div class="container row mx-auto">
+    <div class="col-md-5">
+      <%= image_tag 'AwayFromHomeTransparent.svg', class: "img-fluid" %>
+    </div>
+    <div class="col-md-6 p-lg my-auto mx-auto ms-1 text-light">
+      <h1 class="display-2 fw-bold">RoamHome</h1>
+      <p class="lead fw-normal">Keep your home running smoothly while you are away.</p>
+      <a class="btn btn-light btn-lg mt-3" href="#">Coming soon</a>
+    </div>
+  </div>
+</div>

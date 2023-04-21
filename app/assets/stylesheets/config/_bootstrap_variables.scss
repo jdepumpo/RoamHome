@@ -11,7 +11,7 @@ $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+$primary:    #268053;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -23,3 +23,5 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$accordion-bg: #{white};
+$accordion-button-active-bg: #{white};
