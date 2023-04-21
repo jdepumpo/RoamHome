@@ -1,31 +1,34 @@
 <header class="p-3 mb-3 border-bottom">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
+        <a href="/" class="me-lg-auto d-flex flex-no-wrap align-items-center me-4 mb-2 mb-lg-0 text-primary text-decoration-none">
+          <%= image_tag "AwayFromHomeLogo.svg", style: "height: 64px;" %>
+          <span class="fw-bold ms-2" style="font-size: 2rem;">RoamHome</span>
         </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <% if current_user %>
+        <ul class="nav col-12 col-lg-auto ms-lg-auto me-2 mb-2 justify-content-center mb-md-0">
           <li><a href="/trips" class="nav-link px-2 link-secondary">My Trips</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= navbar_avatar(current_user) %>
+            </a>
+            <ul class="dropdown-menu text-small" style="">
+              <li><a class="dropdown-item" href="/trips/new">New Trip</a></li>
+              <li><%= link_to "My Profile", user_profile_path(current_user), class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="col-md-3 text-end">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary me-2" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+          </div>
+        <% end %>
 
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" title="" style="" width="32" height="32">
-          </a>
-          <% if current_user %>
-          <ul class="dropdown-menu text-small" style="">
-            <li><a class="dropdown-item" href="/trips/new">New Trip</a></li>
-            <li><%= link_to "My Profile", user_profile_path(current_user), class: "dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
-          </ul>
-          <% end %>
-        </div>
       </div>
     </div>
   </header>
