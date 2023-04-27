@@ -97,6 +97,7 @@ GEM
       aws_cf_signer
       rest-client (>= 2.0.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.4.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -108,6 +109,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.2.5)
+      rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -202,6 +205,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.1)
+      connection_pool
     regexp_parser (2.6.1)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -277,6 +284,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
+  dockerfile-rails (>= 1.2)
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1)
@@ -285,6 +293,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 5.0)
   sassc-rails
   selenium-webdriver
   simple_form!
