@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  namespace :user do
+  namespace :users do
     root to: "trips#index"
   end
 
