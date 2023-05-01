@@ -6,7 +6,7 @@
     <div class="col-md-7 py-lg my-auto mx-auto ms-1 text-light">
       <h1 class="display-4 fw-bold">Keep your home running smoothly while you are away.</h1>
       <p class="lead fw-normal">Tired of coming home from a trip to dead plants and stolen mail? Whether you are away on business, vacation, or living as a digital nomad, RoamHome is the home-sitting task manager that makes it easy to keep your home in order.</p>
-      <a class="btn btn-info btn-lg mt-3" href="/users/sign_in?demo=true">Try the Demo</a>
+      <a class="btn btn-info btn-lg mt-3" href="<%= current_user ? "/trips" : "/users/sign_in?demo=true" %>"><%= current_user ? "My Trips" : "Try the Demo" %></a>
     </div>
   </div>
 </div>
@@ -83,7 +83,7 @@
   <div class="container row mx-auto justify-between">
     <div class="col-md-12 py-lg my-auto mx-auto ms-1 text-light">
       <h1 class="display-4 fw-bold">Ready to RoamHome?</h1>
-      <a class="btn btn-info btn-lg mt-3" href="/users/sign_in?demo=true">Try the Demo</a>
+      <a class="btn btn-info btn-lg mt-3" href="<%= current_user ? "/trips" : "/users/sign_in?demo=true" %>"><%= current_user ? "My Trips" : "Try the Demo" %></a>
     </div>
   </div>
 </div>

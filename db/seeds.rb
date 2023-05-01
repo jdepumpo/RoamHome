@@ -27,7 +27,7 @@ homeowner_array = []
                          last_name: Faker::Name.last_name,
                          location: Faker::Address.full_address,
                          role: "homeowner",
-                         email: "#{i + 1}@homeowner.com",
+                         email: "#{i + 1}@home.com",
                          password: "123456"
                        })
   homeowner.photo.attach(io: prof_pic, filename: "homeowner#{i}.jpeg", content_type: "image/jpeg")
@@ -75,8 +75,8 @@ trip_array = []
   trip = Trip.new({
                     name: def_trips[i][0].to_s,
                     description: def_trips[i][1].to_s,
-                    start_date: Date.parse("2023-01-#{rand(24..27)}"),
-                    end_date: Date.parse("2023-02-#{rand(1..5)}"),
+                    start_date: Date.parse("2023-06-#{rand(24..27)}"),
+                    end_date: Date.parse("2023-07-#{rand(1..5)}"),
                     location: Faker::Address.full_address,
                     entry_type: ["Lockbox", "Digital Lock", "Hidden Key", "Other"].sample
                   })
