@@ -12,7 +12,6 @@ class TripsController < ApplicationController
       @trips = []
       "no trips yet"
     end
-    @picture_array = ["https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/176395/pexels-photo-176395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/209878/pexels-photo-209878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]
   end
 
   def new
@@ -35,7 +34,6 @@ class TripsController < ApplicationController
     when "caretaker"
       @tasks = @trip.tasks.where(user_id: current_user)
     end
-    @picture_array = ["https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/176395/pexels-photo-176395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/209878/pexels-photo-209878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]
   end
 
   def edit
