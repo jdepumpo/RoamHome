@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: %i[show update destroy]
+
   def create
     @trip = Trip.find(params[:trip_id])
     @task = Task.new(task_params)
@@ -18,11 +20,9 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     @trip = @task.trip
 
     @task.done = !@task.done
@@ -45,7 +45,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
     @trip = @task.trip
     @task.destroy
     redirect_to trip_path(@trip), status: :see_other
@@ -55,5 +54,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :description, :date)
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 end
