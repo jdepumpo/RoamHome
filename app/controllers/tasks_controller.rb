@@ -5,7 +5,6 @@ class TasksController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @task = Task.new(task_params)
     @task.trip = @trip
-    # raise
     if @trip.tasks.where(date: params[:task][:date]).first
       @task.user = @trip.tasks.where(date: params[:task][:date]).first.user
     else
